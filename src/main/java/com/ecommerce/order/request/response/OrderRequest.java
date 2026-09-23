@@ -1,4 +1,6 @@
-package com.ecommerce.order.request;
+package com.ecommerce.order.request.response;
+
+import java.math.BigDecimal;
 
 public class OrderRequest {
 	int customerId;
@@ -6,7 +8,7 @@ public class OrderRequest {
     int productId;
     String productName;
     int quantity;
-    double amount;
+    BigDecimal amount;
     String deliveryAddress;
 	public int getCustomerId() {
 		return customerId;
@@ -38,10 +40,10 @@ public class OrderRequest {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public double getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
-	public void setAmount(double amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
 	public String getDeliveryAddress() {
