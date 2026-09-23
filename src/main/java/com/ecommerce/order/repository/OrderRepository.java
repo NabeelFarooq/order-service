@@ -1,5 +1,12 @@
 package com.ecommerce.order.repository;
 
-public class OrderRepository {
+import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.ecommerce.order.entity.OrderEntity;
+
+@Repository
+public interface OrderRepository extends CrudRepository<OrderEntity, Long>{
 }
