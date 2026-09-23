@@ -3,6 +3,8 @@ package com.ecommerce.order.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.ecommerce.enums.OrderStatus;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -32,7 +34,7 @@ public class OrderEntity {
 	private String deliveryAddress;
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private String orderStatus;
+	private OrderStatus orderStatus;
 	private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     
@@ -96,12 +98,6 @@ public class OrderEntity {
 	public void setDeliveryAddress(String deliveryAddress) {
 		this.deliveryAddress = deliveryAddress;
 	}
-	public String getStatus() {
-		return orderStatus;
-	}
-	public void setStatus(String status) {
-		this.orderStatus = status;
-	}
 	public long getId() {
 		return id;
 	}
@@ -126,11 +122,11 @@ public class OrderEntity {
 		this.orderDate = orderDate;
 	}
 
-	public String getOrderStatus() {
+	public OrderStatus getOrderStatus() {
 		return orderStatus;
 	}
 
-	public void setOrderStatus(String orderStatus) {
+	public void setOrderStatus(OrderStatus orderStatus) {
 		this.orderStatus = orderStatus;
 	}
 
