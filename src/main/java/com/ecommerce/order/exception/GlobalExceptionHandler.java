@@ -1,4 +1,4 @@
-package com.ecommerce.exception;
+package com.ecommerce.order.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.ecommerce.kafka;
+package com.ecommerce.order.kafka;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;

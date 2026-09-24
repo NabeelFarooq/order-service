@@ -3,7 +3,7 @@ package com.ecommerce.order.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import com.ecommerce.enums.OrderStatus;
+import com.ecommerce.order.enums.OrderStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

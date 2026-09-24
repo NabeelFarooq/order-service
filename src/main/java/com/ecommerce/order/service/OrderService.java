@@ -8,13 +8,12 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ecommerce.enums.OrderStatus;
-import com.ecommerce.exception.UnableToPlaceOrderException;
-
 import com.ecommerce.order.entity.OrderEntity;
 import com.ecommerce.order.entity.OutboxEvent;
+import com.ecommerce.order.enums.OrderStatus;
 import com.ecommerce.order.event.OrderCreatedEvent;
 import com.ecommerce.order.event.OrderEventFactory;
+import com.ecommerce.order.exception.UnableToPlaceOrderException;
 import com.ecommerce.order.repository.OrderRepository;
 import com.ecommerce.order.repository.OutboxEventRepository;
 import com.ecommerce.order.request.response.OrderRequest;

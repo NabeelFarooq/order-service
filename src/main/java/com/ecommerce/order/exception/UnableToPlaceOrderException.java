@@ -1,4 +1,4 @@
-package com.ecommerce.exception;
+package com.ecommerce.order.exception;
 
 public class UnableToPlaceOrderException extends RuntimeException{
 

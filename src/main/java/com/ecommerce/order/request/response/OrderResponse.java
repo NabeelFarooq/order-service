@@ -1,6 +1,6 @@
 package com.ecommerce.order.request.response;
 
-import com.ecommerce.enums.OrderStatus;
+import com.ecommerce.order.enums.OrderStatus;
 
 public class OrderResponse {
 	String orderId;
