@@ -10,22 +10,38 @@ import org.springframework.stereotype.Service;
 
 import com.ecommerce.enums.OrderStatus;
 import com.ecommerce.exception.UnableToPlaceOrderException;
-import com.ecommerce.kafka.KafkaEvent;
-import com.ecommerce.kafka.PublishToKafka;
+
 import com.ecommerce.order.entity.OrderEntity;
+import com.ecommerce.order.entity.OutboxEvent;
+import com.ecommerce.order.event.OrderCreatedEvent;
+import com.ecommerce.order.event.OrderEventFactory;
 import com.ecommerce.order.repository.OrderRepository;
+import com.ecommerce.order.repository.OutboxEventRepository;
 import com.ecommerce.order.request.response.OrderRequest;
 import com.ecommerce.order.request.response.OrderResponse;
 
+import jakarta.transaction.Transactional;
 import tools.jackson.databind.ObjectMapper;
 
 @Service
 public class OrderService {
-	@Autowired
-	OrderRepository orderRepository;
-	@Autowired
-	PublishToKafka publishToKafka;
-	public OrderResponse createOrderForCustomer(OrderRequest orderRequest) {
+	private final OrderRepository orderRepository;
+    private final OutboxEventRepository outboxEventRepository;
+    private final OrderEventFactory orderEventFactory;
+    private final ObjectMapper objectMapper;
+    public OrderService(
+            OrderRepository orderRepository,
+            OutboxEventRepository outboxEventRepository,
+            OrderEventFactory orderEventFactory,
+            ObjectMapper objectMapper) {
+
+        this.orderRepository = orderRepository;
+        this.outboxEventRepository = outboxEventRepository;
+        this.orderEventFactory = orderEventFactory;
+        this.objectMapper = objectMapper;
+    }
+    @Transactional
+	public OrderResponse createOrder(OrderRequest orderRequest) {
 		OrderEntity orderEntity = new OrderEntity();
 		orderEntity.setOrderNumber(generateOrderNumber());
 		orderEntity.setCustomerId(orderRequest.getCustomerId());
@@ -36,7 +52,7 @@ public class OrderService {
 		orderEntity.setOrderDate(LocalDateTime.now());
 		orderEntity.setAmount(orderRequest.getAmount());
 		orderEntity.setDeliveryAddress(orderRequest.getDeliveryAddress());
-		orderEntity.setOrderStatus(OrderStatus.CONFIRMED);
+		orderEntity.setOrderStatus(OrderStatus.CREATED);
 		
 		// unable to create order exception
 		OrderEntity orderEntityResp = orderRepository.save(orderEntity);
@@ -50,10 +66,25 @@ public class OrderService {
 		orderResponse.setStatus(orderEntityResp.getOrderStatus());
 
 		
-		System.out.println("OrderService.createOrderForCustomer().... order created. sending message to kafka");
-		String data = objToJson(orderResponse);
+		System.out.println("OrderService.createOrder().... order created. sending message to kafka");
 		
-		//kafkaService.sendMessage("order-created", data);
+		
+		OrderCreatedEvent event =
+                orderEventFactory.create(orderEntityResp);
+
+        OutboxEvent outboxEvent = new OutboxEvent();
+
+        outboxEvent.setEventId(event.getEventId());
+        outboxEvent.setEventType(event.getEventType());
+        outboxEvent.setMessageKey(event.getOrderId());
+        outboxEvent.setTopic("order-created");
+        outboxEvent.setPayload(
+                objectMapper.writeValueAsString(event));
+        outboxEvent.setStatus("NEW");
+        outboxEvent.setCreatedAt(LocalDateTime.now());
+
+        outboxEventRepository.save(outboxEvent);
+        
 		return orderResponse;
 	}
 
@@ -62,12 +93,6 @@ public class OrderService {
 
 		return "ORD-" + LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE) + "-" + randomPart;
 	}
-	// if its a common method, you can move it to outside
-	private String objToJson(OrderResponse orderResponse) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		String json = objectMapper.writeValueAsString(orderResponse);
-		return json;
-	} 
-	
+	 
 	
 }
