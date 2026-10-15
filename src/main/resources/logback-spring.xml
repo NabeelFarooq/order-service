@@ -1,0 +1,55 @@
+
+<configuration>
+
+	<!-- Read application name from Spring properties -->
+	<springProperty scope="context" name="applicationName"
+		source="spring.application.name" defaultValue="my-order-service" />
+
+	<!-- Console logging -->
+	<appender name="CONSOLE"
+		class="ch.qos.logback.core.ConsoleAppender">
+
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level
+				[${applicationName},traceId=%X{traceId:-},spanId=%X{spanId:-}]
+				%logger{36} - %msg%n</pattern>
+		</encoder>
+
+	</appender>
+
+	<!-- File logging -->
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+		<file>logs/my-order-service.log</file>
+
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+
+			<fileNamePattern>logs/my-order-service.%d{yyyy-MM-dd-HH-mm}.%i.log.gz
+			</fileNamePattern>
+
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>30</maxHistory>
+			<totalSizeCap>1GB</totalSizeCap>
+
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level
+				[${applicationName},traceId=%X{traceId:-},spanId=%X{spanId:-}]
+				%logger{36} - %msg%n</pattern>
+		</encoder>
+
+	</appender>
+
+	<!-- Application logs -->
+	<logger name="com.ecommerce.order" level="INFO" />
+
+	<!-- Root logger -->
+	<root level="INFO">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>

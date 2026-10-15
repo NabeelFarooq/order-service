@@ -21,6 +21,9 @@ public class OutboxEvent {
     @Column(nullable = false)
     private String topic;
 
+    @Column(name = "trace_context", columnDefinition = "TEXT")
+    private String traceContext;
+    
     private String messageKey;
     
     @Column(nullable = false, columnDefinition = "TEXT")
@@ -47,7 +50,14 @@ public class OutboxEvent {
     public void setEventType(String eventType) {
         this.eventType = eventType;
     }
+    public String getTraceContext() {
+        return traceContext;
+    }
 
+    public void setTraceContext(String traceContext) {
+        this.traceContext = traceContext;
+    }
+    
     public String getTopic() {
         return topic;
     }

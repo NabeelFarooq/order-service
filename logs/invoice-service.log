@@ -1,0 +1,174 @@
+2026-10-15 16:32:01.301 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2026-10-15 16:32:01.303 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application MY-ORDER-SERVICE with eureka with status DOWN
+2026-10-15 16:32:01.303 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1792062121303, current=DOWN, previous=UP]
+2026-10-15 16:32:01.304 [DiscoveryClient-InstanceInfoReplicator-%d] INFO 
+				[my-order-service,traceId=,spanId=]
+				c.netflix.discovery.DiscoveryClient - DiscoveryClient_MY-ORDER-SERVICE/localhost:my-order-service:8080: registering service...
+2026-10-15 16:32:01.310 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-order-status-service-group-1, groupId=order-status-service-group] Revoke previously assigned partitions [order-delivered-0, order-delivered-1, order-delivered-2]
+2026-10-15 16:32:01.310 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-order-status-service-group-2, groupId=order-status-service-group] Revoke previously assigned partitions [payment-success-0, payment-success-1, payment-success-2]
+2026-10-15 16:32:01.310 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerRebalanceListenerInvoker - [Consumer clientId=consumer-order-status-service-group-3, groupId=order-status-service-group] Revoke previously assigned partitions [payment-failed-0, payment-failed-1, payment-failed-2]
+2026-10-15 16:32:01.311 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.k.l.KafkaMessageListenerContainer - order-status-service-group: partitions revoked: [payment-failed-0, payment-failed-1, payment-failed-2]
+2026-10-15 16:32:01.311 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.k.l.KafkaMessageListenerContainer - order-status-service-group: partitions revoked: [payment-success-0, payment-success-1, payment-success-2]
+2026-10-15 16:32:01.311 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.k.l.KafkaMessageListenerContainer - order-status-service-group: partitions revoked: [order-delivered-0, order-delivered-1, order-delivered-2]
+2026-10-15 16:32:01.312 [DiscoveryClient-InstanceInfoReplicator-%d] INFO 
+				[my-order-service,traceId=,spanId=]
+				c.netflix.discovery.DiscoveryClient - DiscoveryClient_MY-ORDER-SERVICE/localhost:my-order-service:8080 - registration status: 204
+2026-10-15 16:32:01.313 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-2, groupId=order-status-service-group] Member consumer-order-status-service-group-2-9f7585c0-fb80-484b-8304-4f093dc273b5 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-10-15 16:32:01.313 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-3, groupId=order-status-service-group] Member consumer-order-status-service-group-3-de935a50-b1ea-4dbd-ba4d-53404b8e1cc3 sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-10-15 16:32:01.312 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-1, groupId=order-status-service-group] Member consumer-order-status-service-group-1-17496407-e302-4533-9ceb-4225631e04ae sending LeaveGroup request to coordinator localhost:9092 (id: 2147483646 rack: null isFenced: false) due to the consumer unsubscribed from all topics
+2026-10-15 16:32:01.314 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-1, groupId=order-status-service-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.314 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-2, groupId=order-status-service-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.314 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-1, groupId=order-status-service-group] Request joining group due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.314 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-2, groupId=order-status-service-group] Request joining group due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.314 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-order-status-service-group-1, groupId=order-status-service-group] Unsubscribed all topics or patterns and assigned partitions
+2026-10-15 16:32:01.314 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-order-status-service-group-2, groupId=order-status-service-group] Unsubscribed all topics or patterns and assigned partitions
+2026-10-15 16:32:01.314 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-3, groupId=order-status-service-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.314 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-3, groupId=order-status-service-group] Request joining group due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.314 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ClassicKafkaConsumer - [Consumer clientId=consumer-order-status-service-group-3, groupId=order-status-service-group] Unsubscribed all topics or patterns and assigned partitions
+2026-10-15 16:32:01.317 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-3, groupId=order-status-service-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.317 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-2, groupId=order-status-service-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.317 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-1, groupId=order-status-service-group] Resetting generation and member id due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.317 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-2, groupId=order-status-service-group] Request joining group due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.317 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-1, groupId=order-status-service-group] Request joining group due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.317 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.k.c.c.i.ConsumerCoordinator - [Consumer clientId=consumer-order-status-service-group-3, groupId=order-status-service-group] Request joining group due to: consumer pro-actively leaving the group
+2026-10-15 16:32:01.402 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-10-15 16:32:01.402 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-10-15 16:32:01.402 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Metrics scheduler closed
+2026-10-15 16:32:01.402 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-10-15 16:32:01.402 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-10-15 16:32:01.402 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-10-15 16:32:01.402 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-10-15 16:32:01.402 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-10-15 16:32:01.403 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-10-15 16:32:01.403 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Closing reporter org.apache.kafka.common.telemetry.internals.ClientTelemetryReporter
+2026-10-15 16:32:01.403 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-10-15 16:32:01.403 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.metrics.Metrics - Metrics reporters closed
+2026-10-15 16:32:01.411 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-order-status-service-group-3 unregistered
+2026-10-15 16:32:01.411 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-order-status-service-group-2 unregistered
+2026-10-15 16:32:01.411 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.kafka.common.utils.AppInfoParser - App info kafka.consumer for consumer-order-status-service-group-1 unregistered
+2026-10-15 16:32:01.412 [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.k.l.KafkaMessageListenerContainer - order-status-service-group: Consumer stopped
+2026-10-15 16:32:01.412 [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.k.l.KafkaMessageListenerContainer - order-status-service-group: Consumer stopped
+2026-10-15 16:32:01.412 [org.springframework.kafka.KafkaListenerEndpointContainer#2-0-C-1] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.k.l.KafkaMessageListenerContainer - order-status-service-group: Consumer stopped
+2026-10-15 16:32:01.414 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-15 16:32:01.414 [tomcat-shutdown] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2026-10-15 16:32:01.415 [tomcat-shutdown] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-10-15 16:32:01.416 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2026-10-15 16:32:01.425 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-15 16:32:01.427 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-10-15 16:32:01.436 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-10-15 16:32:01.790 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-10-15 16:32:04.791 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-10-15 16:32:04.799 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				c.netflix.discovery.DiscoveryClient - DiscoveryClient_MY-ORDER-SERVICE/localhost:my-order-service:8080 - deregister  status: 200
+2026-10-15 16:32:04.799 [RMI TCP Connection(8)-192.168.1.39] INFO 
+				[my-order-service,traceId=,spanId=]
+				c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
